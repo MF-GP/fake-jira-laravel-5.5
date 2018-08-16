@@ -18,3 +18,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::post('/register', 'UserController@register');
+
+Route::group(array('prefix' => 'jira', 'middleware'=>['auth']), function () {
+	Route::post('/store', 'JiraController@store');
+});

@@ -31,4 +31,9 @@ class User extends Authenticatable
     {
         return 'https://www.gravatar.com/avatar/' . md5($this->email) . 'x?s=45&d=mm';
     }
+
+    public function jiras()
+    {
+        return $this->hasMany('App\Models\Jira');
+    }
 }

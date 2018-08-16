@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\User;
 
 class Jira extends Model
 {
@@ -10,11 +11,10 @@ class Jira extends Model
      * The attributes that are mass assignable.
      *
      * @var array
-     */
+     */	
     protected $fillable = [
 	    	'id',
 	    	'created_by',
-	    	'issue_id',
 			'issue_name',
 			'issuetype_name',
 			'serial_no',
@@ -28,6 +28,6 @@ class Jira extends Model
 
     public function user()
     {
-    	return $this->belongsTo('App\User');
+    	return $this->belongsTo(User::class);
     }
 }

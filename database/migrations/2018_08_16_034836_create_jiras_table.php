@@ -15,7 +15,6 @@ class CreateJirasTable extends Migration
     {
         Schema::create('jiras', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer("issue_id")->nullable();
             $table->string("issue_name")->nullable();
             $table->string("issuetype_name", 100)->nullable();
             $table->string("serial_no", 100)->nullable();

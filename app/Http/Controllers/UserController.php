@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\UserRegisterRequest;
+use App\Http\Resources\UserResource;
 use App\User;
 
 class UserController extends Controller
@@ -17,15 +18,9 @@ class UserController extends Controller
 
 		$data = [
 		    "status" => "200",
-		    "description" => "User has been created successful."
-		   /* "details" => [
-		        "id": 1,
-		        "email": "a@a.a",
-		        "mobile": "",
-		        "source": "",
-		        "source_id": "",
-		        "message": "Bad Request : Already Logged In"            
-		    ]*/
+		    "description" => "User has been created successful.",
+		    "user" => new UserResource($user)
+		    // "user" => new UserResource(User::find(2))
 		];
 		return response()->json($data);
 	}
